@@ -1,23 +1,21 @@
-import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
 
 import { Collapsible } from '@/components/ui/collapsible';
-import { ExternalLink } from '@/components/external-link';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
 
-export default function TabTwoScreen() {
+export default function explore() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerBackgroundColor={{ light: '#D0E8FF', dark: '#1A2E45' }}
       headerImage={
         <IconSymbol
           size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
+          color="#4A90D9"
+          name="questionmark.circle"
           style={styles.headerImage}
         />
       }>
@@ -27,72 +25,72 @@ export default function TabTwoScreen() {
           style={{
             fontFamily: Fonts.rounded,
           }}>
-          Explore
+          FAQs
         </ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
+      <ThemedText>
+        Got questions about using the Job Tracker? We've got you covered.
+      </ThemedText>
+
+      <Collapsible title="How do I add a job?">
         <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+          Tap the <ThemedText type="defaultSemiBold">+ Add Job</ThemedText> button on the home
+          screen. Fill in the job title, company name, and any other details like the posting URL or
+          notes. Hit <ThemedText type="defaultSemiBold">Save</ThemedText> and it will appear in your
+          job list instantly.
         </ThemedText>
       </Collapsible>
-      <Collapsible title="Images">
+
+      <Collapsible title="How do I track application status?">
         <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
+          Each job entry has a <ThemedText type="defaultSemiBold">Status</ThemedText> field you can
+          update at any time. Available statuses include:
         </ThemedText>
-        <Image
-          source={require('@/assets/images/react-logo.png')}
-          style={{ width: 100, height: 100, alignSelf: 'center' }}
-        />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        <ThemedText type="defaultSemiBold" style={styles.statusItem}>
+          🟡 Applied
+        </ThemedText>
+        <ThemedText type="defaultSemiBold" style={styles.statusItem}>
+          🔵 Interview Scheduled
+        </ThemedText>
+        <ThemedText type="defaultSemiBold" style={styles.statusItem}>
+          🟢 Offer Received
+        </ThemedText>
+        <ThemedText type="defaultSemiBold" style={styles.statusItem}>
+          🔴 Rejected
+        </ThemedText>
+        <ThemedText style={styles.statusNote}>
+          Tap on a job card and select{' '}
+          <ThemedText type="defaultSemiBold">Edit</ThemedText> to update the status as your
+          application progresses.
+        </ThemedText>
       </Collapsible>
-      <Collapsible title="Light and dark mode components">
+
+      <Collapsible title="How do I filter or search jobs?">
         <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
+          Use the <ThemedText type="defaultSemiBold">Search bar</ThemedText> at the top of the job
+          list to find jobs by company name or job title. You can also use the{' '}
+          <ThemedText type="defaultSemiBold">Filter</ThemedText> button to narrow results by status
+          (e.g., show only "Interview Scheduled" jobs).
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
       </Collapsible>
-      <Collapsible title="Animations">
+
+      <Collapsible title="Is my data saved and synced?">
         <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful{' '}
-          <ThemedText type="defaultSemiBold" style={{ fontFamily: Fonts.mono }}>
-            react-native-reanimated
-          </ThemedText>{' '}
-          library to create a waving hand animation.
+          Yes! Your job entries are saved{' '}
+          <ThemedText type="defaultSemiBold">automatically</ThemedText> on your device. If you're
+          signed in with an account, your data is also synced to the cloud so you can access it
+          across multiple devices without losing any entries.
         </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
+      </Collapsible>
+
+      <Collapsible title="How do I delete a job entry?">
+        <ThemedText>
+          To delete a job, swipe left on the job card in the list and tap{' '}
+          <ThemedText type="defaultSemiBold">Delete</ThemedText>. Alternatively, open the job
+          detail view, tap the{' '}
+          <ThemedText type="defaultSemiBold">⋯ menu</ThemedText> in the top right, and select{' '}
+          <ThemedText type="defaultSemiBold">Delete Job</ThemedText>. This action cannot be undone.
+        </ThemedText>
       </Collapsible>
     </ParallaxScrollView>
   );
@@ -100,7 +98,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: '#4A90D9',
     bottom: -90,
     left: -35,
     position: 'absolute',
@@ -108,5 +106,12 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+  },
+  statusItem: {
+    marginTop: 4,
+    marginLeft: 8,
+  },
+  statusNote: {
+    marginTop: 8,
   },
 });

@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+# 💼 Job Tracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A clean, minimal mobile app built with **React Native & Expo** to help you stay on top of your job search — track applications, monitor statuses, and never lose sight of an opportunity.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+- **Add & Edit Jobs** — Log job applications with company name, position, and status
+- **Status Tracking** — Mark each application as `Applied`, `Interview`, `Offer`, or `Rejected`
+- **Filter by Status** — Quickly view jobs by their current stage
+- **Stats Dashboard** — At-a-glance counts for each status category
+- **Persistent Storage** — Data is saved locally using AsyncStorage, so nothing is lost between sessions
+- **FAQ Screen** — Built-in help section for new users
+- **Dark UI** — Sleek dark theme designed for readability
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🗂️ Project Structure
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/
+├── (tabs)/
+│   ├── _layout.tsx       # Tab navigator (Jobs, Analytics, Settings)
+│   ├── index.tsx         # Main job list + add/edit/delete
+│   ├── analytics.tsx     # Analytics screen
+│   ├── settings.tsx      # Settings screen
+│   └── explore.tsx       # FAQ screen
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🚀 Getting Started
 
-To learn more about developing your project with Expo, look at the following resources:
+### Prerequisites
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Node.js](https://nodejs.org/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
-## Join the community
+### Installation
 
-Join our community of developers creating universal apps.
+```bash
+# Clone the repository
+git clone https://github.com/your-username/job-tracker.git
+cd job-tracker
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Install dependencies
+npm install
+
+# Start the development server
+npx expo start
+```
+
+Then scan the QR code with the **Expo Go** app on your phone, or press `i` for iOS simulator / `a` for Android emulator.
+
+---
+
+## 🛠️ Built With
+
+| Tech | Purpose |
+|------|---------|
+| [React Native](https://reactnative.dev/) | Mobile framework |
+| [Expo](https://expo.dev/) | Development platform |
+| [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) | Local data persistence |
+| [Expo Router](https://docs.expo.dev/router/introduction/) | File-based navigation |
+| [Ionicons](https://ionic.io/ionicons) | Tab bar icons |
+
+---
+
+## 📊 Status Types
+
+| Status | Color | Meaning |
+|--------|-------|---------|
+| 🔵 Applied | Blue | Application submitted |
+| 🟡 Interview | Amber | Interview scheduled or ongoing |
+| 🟢 Offer | Green | Offer received |
+| 🔴 Rejected | Red | Application closed |
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+
+---
